@@ -19,7 +19,7 @@ def main_interface():
     root.geometry("800x600")  # Fixed large size for the main window
 
     # Load the background image
-    background_image = Image.open("istockphoto-1076840920-612x612.jpg")
+    background_image = Image.open("images/istockphoto-1076840920-612x612.jpg")
     background_image = background_image.resize((800, 600), Image.LANCZOS)
     background_image = ImageTk.PhotoImage(background_image)
 
@@ -142,7 +142,7 @@ welcome_window.title("Welcome")
 welcome_window.geometry("800x600")  # Fixed size for the welcome window
 
 # Load the background image
-background_image = Image.open("istockphoto-1076840920-612x612.jpg")
+background_image = Image.open("images/istockphoto-1076840920-612x612.jpg")
 background_image = background_image.resize((800, 600), Image.LANCZOS)
 background_image = ImageTk.PhotoImage(background_image)
 
