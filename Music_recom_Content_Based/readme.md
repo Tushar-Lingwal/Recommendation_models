@@ -19,6 +19,12 @@ The Content-Based Song Recommendation System is a Python application that utiliz
 - tkinter (usually included with Python installations)
 - Pillow (for image handling)
 
+## preview of the window 
+
+![image](https://github.com/user-attachments/assets/5f78316e-72d1-4ea1-9125-3ab799db2c9f)
+
+![image](https://github.com/user-attachments/assets/66c52b40-cb60-44ed-9acc-b4ff09f87ceb)
+
 ## Usage
 Running the Application
 1. Run the welcome (main.py) Screen:
