@@ -3,7 +3,6 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from recommender import ContentBasedRecommender
 
-# Initialize the recommender with the path to your song data CSV
 recommendations = ContentBasedRecommender('songdata.csv')
 
 def open_recommendation_system():
@@ -16,24 +15,21 @@ def exit_application():
 def main_interface():
     root = tk.Tk()
     root.title("Song Recommendation System")
-    root.geometry("800x600")  # Fixed large size for the main window
-
-    # Load the background image
+    root.geometry("800x600") 
     background_image = Image.open("images/istockphoto-1076840920-612x612.jpg")
     background_image = background_image.resize((800, 600), Image.LANCZOS)
     background_image = ImageTk.PhotoImage(background_image)
 
-    # Create a canvas to hold the background image
     canvas = tk.Canvas(root, width=800, height=600)
     canvas.pack(fill="both", expand=True)
     canvas.create_image(0, 0, image=background_image, anchor="nw")
 
     # Create a frame for the UI elements
     ui_frame = ttk.Frame(root, padding="20", style='TFrame')
-    ui_frame.place(relx=0.5, rely=0.3, anchor=tk.CENTER)  # Centered in the window
+    ui_frame.place(relx=0.5, rely=0.4, anchor=tk.CENTER)  # Centered in the window
 
     heading_label = ttk.Label(root, text="CONTENT BASED FILTERING", font=("Helvetica", 20, "bold"))
-    heading_label.place(relx=0.5, rely=0.3, anchor=tk.CENTER)
+    heading_label.place(relx=0.5, rely=0.25, anchor=tk.CENTER)
 
     # Create and place the label, dropdown, and button in the ui_frame
     label = ttk.Label(ui_frame, text="Select a Song:")
@@ -116,7 +112,7 @@ def main_interface():
     filter_button.grid(row=0, column=2, padx=5, pady=5)
     button = ttk.Button(ui_frame, text="Get Recommendations", command=show_recommendations)
     button.grid(row=1, column=2, padx=5, pady=5)
-    # Create a frame for the recommendations
+    
     global result_frame
     # Create a canvas for the result_frame with a scrollbar
     result_canvas = tk.Canvas(root, height=200)
@@ -126,7 +122,6 @@ def main_interface():
     scrollbar = ttk.Scrollbar(root, orient="vertical", command=result_canvas.yview)
     scrollbar.place(relx=0.75, rely=0.5, height=200, anchor=tk.N)
     
-    # Create a frame within the canvas for the recommendations
     result_frame = ttk.Frame(result_canvas, padding="10", style='TFrame')
     result_frame.bind("<Configure>", lambda e: result_canvas.configure(scrollregion=result_canvas.bbox("all")))
     
@@ -146,16 +141,12 @@ background_image = Image.open("images/istockphoto-1076840920-612x612.jpg")
 background_image = background_image.resize((800, 600), Image.LANCZOS)
 background_image = ImageTk.PhotoImage(background_image)
 
-# Create a canvas to hold the background image
 canvas = tk.Canvas(welcome_window, width=800, height=600)
 canvas.pack(fill="both", expand=True)
 canvas.create_image(0, 0, image=background_image, anchor="nw")
-
-# Create a transparent frame
 welcome_frame = ttk.Frame(welcome_window, padding="20")
 welcome_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-# Create the welcome label with increased font size
 welcome_label = ttk.Label(welcome_frame, text="Welcome to the Song Recommendation Model", font=("Helvetica", 18))
 welcome_label.grid(row=0, column=0, columnspan=2, padx=5, pady=10)
 
